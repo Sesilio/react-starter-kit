@@ -18,6 +18,7 @@ import fetch from 'node-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import PrettyError from 'pretty-error';
+import compression from 'compression';
 import App from './components/App';
 import Html from './components/Html';
 import { ErrorPageWithoutStyle } from './routes/error/ErrorPage';
@@ -31,6 +32,7 @@ import assets from './assets.json'; // eslint-disable-line import/no-unresolved
 import config from './config';
 
 const app = express();
+app.use(compression());
 
 //
 // Tell any CSS tooling (such as Material UI) to use all vendor prefixes if the
